@@ -1,0 +1,999 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>3-Day TRX + Dumbbell Program</title>
+<style>
+  :root {
+    --bg: #0f1115;
+    --card: #ffffff;
+    --ink: #1a1d24;
+    --muted: #6b7280;
+    --line: #e5e7eb;
+    --accent: #e63946;
+    --push: #e63946;
+    --pull: #2b6cb0;
+    --legs: #2f855a;
+    --gold: #d4a017;
+    --dumbbell: #7c3aed;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .page {
+    max-width: 980px;
+    margin: 40px auto;
+    background: var(--card);
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 30px 80px rgba(0,0,0,.35);
+  }
+
+  /* ===== HEADER ===== */
+  header {
+    background: linear-gradient(135deg, #1a1d24 0%, #2b0a0e 45%, #7c3aed 130%);
+    color: #fff;
+    padding: 52px 48px 44px;
+    position: relative;
+    overflow: hidden;
+  }
+  header::after {
+    content: "";
+    position: absolute;
+    right: -60px; top: -60px;
+    width: 220px; height: 220px;
+    border: 2px solid rgba(255,255,255,.12);
+    border-radius: 50%;
+  }
+  header::before {
+    content: "";
+    position: absolute;
+    right: 30px; bottom: -90px;
+    width: 160px; height: 160px;
+    background: rgba(124,58,237,.3);
+    border-radius: 50%;
+    filter: blur(2px);
+  }
+  .badge {
+    display: inline-block;
+    font-size: 11px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    background: rgba(255,255,255,.12);
+    border: 1px solid rgba(255,255,255,.25);
+    padding: 6px 14px;
+    border-radius: 999px;
+    margin-bottom: 18px;
+  }
+  header h1 {
+    font-size: 40px;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    line-height: 1.15;
+    margin-bottom: 12px;
+  }
+  header p {
+    font-size: 15px;
+    color: rgba(255,255,255,.78);
+    max-width: 620px;
+  }
+  .equip {
+    display: flex;
+    gap: 10px;
+    margin-top: 22px;
+    flex-wrap: wrap;
+  }
+  .equip span {
+    font-size: 12px;
+    font-weight: 600;
+    padding: 7px 14px;
+    border-radius: 999px;
+    background: rgba(255,255,255,.1);
+    border: 1px solid rgba(255,255,255,.22);
+    letter-spacing: .3px;
+  }
+
+  /* ===== META STRIP ===== */
+  .meta {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: var(--line);
+  }
+  .meta div { background: #fafafa; padding: 20px 18px; text-align: center; }
+  .meta .label {
+    font-size: 10.5px; text-transform: uppercase; letter-spacing: 1.5px;
+    color: var(--muted); margin-bottom: 5px;
+  }
+  .meta .value { font-size: 14px; font-weight: 700; color: var(--ink); }
+
+  /* ===== CONTENT ===== */
+  .content { padding: 44px 48px 52px; }
+
+  h2.section {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    color: var(--muted);
+    margin: 38px 0 16px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--line);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  h2.section:first-child { margin-top: 0; }
+  .hint {
+    font-size: 10px;
+    text-transform: none;
+    letter-spacing: 0;
+    color: #9ca3af;
+    background: #f3f4f6;
+    padding: 3px 10px;
+    border-radius: 999px;
+    margin-left: auto;
+    font-weight: 500;
+  }
+
+  .warmup {
+    background: #f8f9fb;
+    border-left: 4px solid var(--gold);
+    border-radius: 10px;
+    padding: 20px 24px;
+  }
+  .warmup ul { list-style: none; }
+  .warmup li {
+    padding: 6px 0 6px 22px;
+    position: relative;
+    font-size: 14px;
+    color: #374151;
+  }
+  .warmup li::before {
+    content: "▹";
+    position: absolute; left: 0;
+    color: var(--gold);
+    font-weight: 700;
+  }
+
+  /* ===== NOTE BOX ===== */
+  .note-box {
+    background: #f5f3ff;
+    border-left: 4px solid var(--dumbbell);
+    border-radius: 10px;
+    padding: 16px 22px;
+    font-size: 13.5px;
+    color: #4b5563;
+    margin-bottom: 8px;
+  }
+  .note-box strong { color: var(--dumbbell); }
+
+  /* ===== DAY CARDS ===== */
+  .day {
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    overflow: hidden;
+    margin-bottom: 28px;
+    page-break-inside: avoid;
+  }
+  .day-head {
+    padding: 16px 22px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .day-head .num {
+    font-size: 26px; font-weight: 800; opacity: .45; line-height: 1;
+  }
+  .day-head h3 { font-size: 17px; font-weight: 700; letter-spacing: .3px; }
+  .day-head .progress {
+    margin-left: auto;
+    font-size: 12px;
+    background: rgba(255,255,255,.18);
+    padding: 5px 12px;
+    border-radius: 999px;
+    font-weight: 600;
+    letter-spacing: .5px;
+  }
+  .push .day-head { background: linear-gradient(90deg, var(--push), #b02a37); }
+  .pull .day-head { background: linear-gradient(90deg, var(--pull), #1e4e7a); }
+  .legs .day-head { background: linear-gradient(90deg, var(--legs), #1f5c3d); }
+
+  table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+  thead th {
+    background: #f8f9fb;
+    text-align: left;
+    padding: 11px 12px;
+    font-size: 10.5px;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    color: var(--muted);
+    font-weight: 700;
+    border-bottom: 1px solid var(--line);
+  }
+  tbody td {
+    padding: 10px 12px;
+    border-bottom: 1px solid #f1f2f4;
+    vertical-align: middle;
+  }
+  tbody tr:last-child td { border-bottom: none; }
+  tbody tr:nth-child(even) { background: #fcfcfd; }
+  tbody tr { cursor: pointer; transition: background .15s; }
+  tbody tr:hover { background: #f3f4f6; }
+  td.check { width: 40px; text-align: center; }
+  td.demo  { width: 66px; text-align: center; }
+  td.ex { font-weight: 600; color: var(--ink); }
+  td.ex .tag {
+    display: inline-block;
+    font-size: 9px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .8px;
+    padding: 2px 7px;
+    border-radius: 999px;
+    margin-left: 6px;
+    vertical-align: middle;
+  }
+  .tag.trx { background: #eff6ff; color: var(--pull); }
+  .tag.db  { background: #f5f3ff; color: var(--dumbbell); }
+  td.n { text-align: center; color: var(--muted); font-variant-numeric: tabular-nums; }
+  td.cue { color: #4b5563; font-size: 12.5px; }
+
+  /* ===== CHECKBOX ===== */
+  .cb {
+    display: inline-block;
+    width: 22px; height: 22px;
+    border: 2px solid #cbd5e1;
+    border-radius: 6px;
+    position: relative;
+    transition: all .2s;
+    background: #fff;
+    vertical-align: middle;
+  }
+  tr.done .cb { background: var(--accent); border-color: var(--accent); }
+  tr.done .cb::after {
+    content: "";
+    position: absolute;
+    left: 6px; top: 2px;
+    width: 6px; height: 11px;
+    border: solid #fff;
+    border-width: 0 2.5px 2.5px 0;
+    transform: rotate(45deg);
+  }
+  tr.done td.ex { text-decoration: line-through; color: #9ca3af; }
+  tr.done { background: #fef2f2 !important; }
+
+  /* ===== DEMO THUMBNAIL ===== */
+  .thumb {
+    display: inline-block;
+    width: 52px; height: 38px;
+    border-radius: 8px;
+    position: relative;
+    text-decoration: none;
+    overflow: visible;
+    transition: transform .18s, box-shadow .18s;
+    border: 1.5px solid #e5e7eb;
+    background: #f8f9fb;
+    vertical-align: middle;
+  }
+  .thumb svg { width: 100%; height: 100%; display: block; border-radius: 7px; }
+  .thumb:hover {
+    transform: scale(1.14);
+    box-shadow: 0 6px 16px rgba(0,0,0,.18);
+    border-color: var(--accent);
+    z-index: 5;
+  }
+  .thumb .zoom {
+    position: absolute;
+    bottom: -4px; right: -4px;
+    width: 16px; height: 16px;
+    border-radius: 50%;
+    background: #fff;
+    color: var(--accent);
+    font-size: 9px;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 1px 4px rgba(0,0,0,.2);
+    line-height: 1;
+  }
+
+  /* ===== RULES & NOTES ===== */
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  .box {
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 20px 22px;
+    page-break-inside: avoid;
+  }
+  .box h4 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 12px;
+    color: var(--ink);
+  }
+  .box ol, .box ul { padding-left: 18px; }
+  .box li { font-size: 13px; color: #374151; margin-bottom: 8px; }
+
+  .notes {
+    background: #fff8f8;
+    border: 1px solid #f6d5d8;
+    border-radius: 12px;
+    padding: 20px 22px;
+    margin-top: 22px;
+    page-break-inside: avoid;
+  }
+  .notes h4 { color: var(--push); }
+  .notes li { color: #4b5563; }
+
+  footer {
+    padding: 22px 48px 30px;
+    border-top: 1px solid var(--line);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 11.5px;
+    color: var(--muted);
+    letter-spacing: .5px;
+  }
+
+  /* ===== BUTTONS ===== */
+  .btn-group {
+    position: fixed;
+    bottom: 28px; right: 28px;
+    display: flex;
+    gap: 10px;
+    z-index: 10;
+  }
+  .btn {
+    border: none;
+    padding: 13px 22px;
+    font-size: 13.5px;
+    font-weight: 700;
+    border-radius: 999px;
+    cursor: pointer;
+    font-family: inherit;
+    letter-spacing: .3px;
+    transition: transform .2s, box-shadow .2s;
+  }
+  .btn-print {
+    background: var(--accent);
+    color: #fff;
+    box-shadow: 0 10px 30px rgba(230,57,70,.4);
+  }
+  .btn-print:hover { transform: translateY(-2px); box-shadow: 0 14px 38px rgba(230,57,70,.5); }
+  .btn-reset {
+    background: #fff;
+    color: #4b5563;
+    border: 1px solid var(--line);
+    box-shadow: 0 6px 20px rgba(0,0,0,.08);
+  }
+  .btn-reset:hover { transform: translateY(-2px); background: #f9fafb; }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 800px) {
+    .page { margin: 0; border-radius: 0; }
+    header { padding: 36px 24px 32px; }
+    header h1 { font-size: 27px; }
+    .meta { grid-template-columns: repeat(2, 1fr); }
+    .content { padding: 28px 20px 36px; }
+    .grid2 { grid-template-columns: 1fr; }
+    table { font-size: 12px; }
+    thead th, tbody td { padding: 9px 6px; }
+    td.cue { display: none; }
+    td.demo { width: 52px; }
+    .thumb { width: 40px; height: 30px; }
+    td.check { width: 30px; }
+    .cb { width: 18px; height: 18px; }
+    tr.done .cb::after { left: 4.5px; top: 1.5px; width: 5px; height: 9px; }
+    .day-head .progress { font-size: 10.5px; padding: 4px 9px; }
+    footer { padding: 18px 22px; flex-direction: column; gap: 6px; }
+    .btn-group { bottom: 14px; right: 14px; }
+    .btn { padding: 11px 16px; font-size: 12.5px; }
+    .hint { display: none; }
+    .equip span { font-size: 11px; padding: 6px 11px; }
+  }
+
+  /* ===== PRINT / PDF ===== */
+  @media print {
+    body { background: #fff; }
+    .page { margin: 0; box-shadow: none; border-radius: 0; max-width: 100%; }
+    .btn-group, .hint { display: none; }
+    tbody tr { cursor: default; }
+    tbody tr:hover { background: inherit; }
+    header, .day-head, .meta div, .warmup, .note-box, .notes, tbody tr:nth-child(even), tr.done {
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+    .day, .box, .notes, .warmup, .note-box { page-break-inside: avoid; }
+    h2.section { page-break-after: avoid; }
+    .content { padding: 28px 36px; }
+    tr.done .cb { background: #fff !important; border-color: #cbd5e1 !important; }
+    tr.done .cb::after { display: none; }
+    tr.done td.ex { text-decoration: none; color: var(--ink); }
+    tr.done { background: inherit !important; }
+    .thumb { pointer-events: none; }
+    .thumb .zoom { display: none; }
+  }
+  @page { margin: 12mm; size: A4; }
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <header>
+    <div class="badge">Advanced Program</div>
+    <h1>3-Day TRX + Dumbbell Plan</h1>
+    <p>A push / pull / legs &amp; core split using suspension straps plus a single dumbbell. Designed for experienced users with one year of consistent TRX training.</p>
+    <div class="equip">
+      <span>🔗 TRX Suspension Trainer</span>
+      <span>🏋️ 1 Dumbbell</span>
+      <span>🧘 Bodyweight</span>
+    </div>
+  </header>
+
+  <div class="meta">
+    <div><div class="label">Level</div><div class="value">Advanced</div></div>
+    <div><div class="label">Frequency</div><div class="value">3 Days / Week</div></div>
+    <div><div class="label">Duration</div><div class="value">45–60 Min</div></div>
+    <div><div class="label">Rest</div><div class="value">60–90 Sec</div></div>
+  </div>
+
+  <div class="content">
+
+    <h2 class="section">Warm-Up · 5–10 Minutes</h2>
+    <div class="warmup">
+      <ul>
+        <li>Shoulder circles — 1–2 minutes</li>
+        <li>Bodyweight squats — 15 reps</li>
+        <li>Arm swings — 30 seconds</li>
+        <li>Light TRX row — 2 × 10 reps</li>
+        <li>Hip hinges and leg swings — 1–2 minutes</li>
+      </ul>
+    </div>
+
+    <h2 class="section">Single Dumbbell Rule</h2>
+    <div class="note-box">
+      <strong>One dumbbell, two sides:</strong> perform all reps on one side, then switch. Rest 30–45 seconds between sides. If your dumbbell is fixed-weight, increase difficulty using <strong>slower tempo, pauses, or a harder TRX body angle</strong> instead of heavier load.
+    </div>
+
+    <h2 class="section">Training Split <span class="hint">💡 Click a thumbnail to view exercise images</span></h2>
+
+    <!-- ============ DAY 1 ============ -->
+    <div class="day push" data-day="day1">
+      <div class="day-head">
+        <div class="num">01</div>
+        <h3>Push — Chest, Shoulders, Triceps</h3>
+        <span class="progress">0 / 5</span>
+      </div>
+      <table>
+        <thead>
+          <tr>
+            <th></th>
+            <th style="width:66px; text-align:center">Demo</th>
+            <th>Exercise</th>
+            <th style="text-align:center">Sets</th>
+            <th style="text-align:center">Reps</th>
+            <th>Coaching Cue</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr data-id="d1-1">
+            <td class="check"><span class="cb"></span></td>
+            <td class="demo">
+              <a class="thumb" href="https://www.google.com/search?tbm=isch&q=TRX+chest+press" target="_blank" rel="noopener" title="View TRX chest press images" onclick="event.stopPropagation()">
+                <svg viewBox="0 0 60 44" xmlns="http://www.w3.org/2000/svg">
+                  <rect width="60" height="44" fill="#fef2f2"/>
+                  <circle cx="50" cy="5" r="2.5" fill="#e63946"/>
+                  <line x1="50" y1="5" x2="36" y2="22" stroke="#e63946" stroke-width="1.3"/>
+                  <circle cx="38" cy="24" r="3" fill="#1a1d24"/>
+                  <line x1="36" y1="26" x2="22" y2="36" stroke="#1a1d24" stroke-width="2" stroke-linecap="round"/>
+                  <line x1="36" y1="27" x2="36" y2="22" stroke="#1a1d24" stroke-width="1.5" stroke-linecap="round"/>
+                  <line x1="22" y1="36" x2="14" y2="40" stroke="#1a1d24" stroke-width="1.5" stroke-linecap="round"/>
+                  <line x1="22" y1="36" x2="20" y2="42" stroke="#1a1d24" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+                <span class="zoom">🔍</span>
+              </a>
+            </td>
+            <td class="ex">TRX Chest Press (slow tempo) <span class="tag trx">TRX</span></td>
+            <td class="n">4</td>
+            <td class="n">8–10</td>
+            <td class="cue">Lower 3 sec, press up 1 sec. Body near parallel to floor.</td>
+          </tr>
+          <tr data-id="d1-2">
+            <td class="check"><span class="cb"></span></td>
+            <td class="demo">
+              <a class="thumb" href="https://www.google.com/search?tbm=isch&q=TRX+single+arm+chest+press" target="_blank" rel="noopener" title="View TRX single-arm chest press images" onclick="event.stopPropagation()">
+                <svg viewBox="0 0 60 44" xmlns="http://www.w3.org/2000/svg">
+                  <rect width="60" height="44" fill="#fef2f2"/>
+                  <circle cx="50" cy="5" r="2.5" fill="#e63946"/>
+                  <line x1="50" y1="5" x2="38" y2="22" stroke="#e63946" stroke-width="1.3"/>
+                  <circle cx="40" cy="24" r="3" fill="#1a1d24"/>
+                  <line x1="38" y1="26" x2="22" y2="36" stroke="#1a1d24" stroke-width="2" stroke-linecap="round"/>
+                  <line x1="38" y1="27" x2="38" y2="22" stroke="#1a1d24" stroke-width="1.5" stroke-linecap="round"/>
+                  <line x1="22" y1="36" x2="14" y2="40" stroke="#1a1d24" stroke-width="1.5" stroke-linecap="round"/>
+                  <line x1="22" y1="36" x2="20" y2="42" stroke="#1a1d24" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+                <span class="zoom">🔍</span>
+              </a>
+            </td>
+            <td class="ex">TRX Single-Arm Chest Press <span class="tag trx">TRX</span></td>
+            <td class="n">3</td>
+            <td class="n">6–8 / arm</td>
+            <td class="cue">Lift the opposite foot slightly to increase core demand.</td>
+          </tr>
+          <tr data-id="d1-3">
+            <td class="check"><span class="cb"></span></td>
+            <td class="demo">
+              <a class="thumb" href="https://www.google.com/search?tbm=isch&q=single+arm+dumbbell+floor+press" target="_blank" rel="noopener" title="View single-arm DB floor press images" onclick="event.stopPropagation()">
+                <svg viewBox="0 0 60 44" xmlns="http://www.w3.org/2000/svg">
+                  <rect width="60" height="44" fill="#f5f3ff"/>
+                  <rect x="6" y="34" width="48" height="2" rx="1" fill="#7c3aed" opacity=".5"/>
+                  <circle cx="40" cy="26" r="3" fill="#1a1d24"/>
+                  <line x1="40" y1="29" x2="40" y2="34" stroke="#1a1d24" stroke-width="2" stroke-linecap="round"/>
+                  <line x1="40" y1="22" x2="40" y2="16" stroke="#1a1d24" stroke-width="1.5" stroke-linecap="round"/>
+                  <rect x="34" y="12" width="12" height="5" rx="2" fill="#7c3aed"/>
+                  <line x1="40" y1="29" x2="50" y2="32" stroke="#1a1d24" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+                <span class="zoom">🔍</span>
+              </a>
+            </td>
+            <td class="ex">Single-Arm DB Floor Press <span class="tag db">DB</span></td>
+            <td class="n">3</td>
+            <td class="n">8–10 / arm</td>
+            <td class="cue">Lie on back, press one dumbbell up. Free hand on floor or chest.</td>
+          </tr>
+          <tr data-id="d1-4">
+            <td class="check"><span class="cb"></span></td>
+            <td class="demo">
+              <a class="thumb" href="https://www.google.com/search?tbm=isch&q=TRX+triceps+extension" target="_blank" rel="noopener" title="View TRX triceps extension images" onclick="event.stopPropagation()">
+                <svg viewBox="0 0 60 44" xmlns="http://www.w3.org/2000/svg">
+                  <rect width="60" height="44" fill="#fef2f2"/>
+                  <circle cx="30" cy="4" r="2.5" fill="#e63946"/>
+                  <line x1="28" y1="6" x2="24" y2="20" stroke="#e63946" stroke-width="1.3"/>
+                  <line x1="32" y1="6" x2="36" y2="20" stroke="#e63946" stroke-width="1.3"/>
+                  <circle cx="30" cy="22" r="3" fill="#1a1d24"/>
+                  <line x1="30" y1="25" x2="30" y2="34" stroke="#1a1d24" stroke-width="2" stroke-linecap="round"/>
+                  <line x1="30" y1="26" x2="24" y2="20" stroke="#1a1d24" stroke-width="1.5" stroke-linecap="round"/>
+                  <line x1="30" y1="26" x2="36" y2="20" stroke="#1a1d24" stroke-width="1.5" stroke-linecap="round"/>
+                  <line x1="30" y1="34" x2="25" y2="41" stroke="#1a1d24" stroke-width="1.5" stroke-linecap="round"/>
+                  <line x1="30" y1="34" x2="35" y2="41" stroke="#1a1d24" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+                <span class="zoom">🔍</span>
+              </a>
+            </td>
+            <td class="ex">TRX Standing Triceps Extension <span class="tag trx">TRX</span></td>
+            <td class="n">3</td>
+            <td class="n">8–12</td>
+            <td class="cue">Walk forward to increase the angle and load on triceps.</td>
+          </tr>
+          <tr data-id="d1-5">
+            <td class="check"><span class="cb"></span></td>
+            <td class="demo">
+              <a class="thumb" href="https://www.google.com/search?tbm=isch&q=single+arm+dumbbell+overhead+press" target="_blank" rel="noopener" title="View single-arm DB overhead press images" onclick="event.stopPropagation()">
+                <svg viewBox="0 0 60 44" xmlns="http://www.w3.org/2000/svg">
+                  <rect width="60" height="44" fill="#f5f3ff"/>
+                  <circle cx="30" cy="22" r="3" fill="#1a1d24"/>
+                  <line x1="30" y1="25" x2="30" y2="34" stroke="#1a1d24" stroke-width="2" stroke-linecap="round"/>
+                  <line x1="30" y1="27" x2="40" y2="20" stroke="#1a1d24" stroke-width="1.5" stroke-linecap="round"/>
+                  <line x1="40" y1="20" x2="40" y2="12" stroke="#1a1d24" stroke-width="1.5" stroke-linecap="round"/>
+                  <rect x="34" y="7" width="12" height="5" rx="2" fill="#7c3aed"/>
+                  <line x1="30" y1="34" x2="25" y2="41" stroke="#1a1d24" stroke-width="1.5" stroke-linecap="round"/>
+                  <line x1="30" y1="34" x2="35" y2="41" stroke="#1a1d24" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+                <span class="zoom">🔍</span>
+              </a>
+            </td>
+            <td class="ex">Single-Arm DB Overhead Press <span class="tag db">DB</span></td>
+            <td class="n">3</td>
+            <td class="n">8–10 / arm</td>
+            <td class="cue">Standing or half-kneel. Brace core, avoid lower-back arch.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- ============ DAY 2 ============ -->
+    <div class="day pull" data-day="day2">
+      <div class="day-head">
+        <div class="num">02</div>
+        <h3>Pull — Back, Biceps, Core</h3>
+        <span class="progress">0 / 5</span>
+      </div>
+      <table>
+        <thead>
+          <tr>
+            <th></th>
+            <th style="width:66px; text-align:center">Demo</th>
+            <th>Exercise</th>
+            <th style="text-align:center">Sets</th>
+            <th style="text-align:center">Reps</th>
+            <th>Coaching Cue</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr data-id="d2-1">
+            <td class="check"><span class="cb"></span></td>
+            <td class="demo">
+              <a class="thumb" href="https://www.google.com/search?tbm=isch&q=TRX+single+arm+row+rotation" target="_blank" rel="noopener" title="View TRX single-arm row images" onclick="event.stopPropagation()">
+                <svg viewBox="0 0 60 44" xmlns="http://www.w3.org/2000/svg">
+                  <rect width="60" height="44" fill="#eff6ff"/>
+                  <circle cx="52" cy="6" r="2.5" fill="#2b6cb0"/>
+                  <path d="M52 6 L40 20 L34 26" stroke="#2b6cb0" stroke-width="1.3" fill="none"/>
+                  <circle cx="36" cy="26" r="3" fill="#1a1d24"/>
+                  <line x1="34" y1="28" x2="20" y2="34" stroke="#1a1d24" stroke-width="2" stroke-linecap="round"/>
+                  <path d="M33 28 L38 24 L40 20" stroke="#1a1d24" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                  <line x1="20" y1="34" x2="12" y2="38" stroke="#1a1d24" stroke-width="1.5" stroke-linecap="round"/>
+                  <line x1="20" y1="34" x2="18" y2="40" stroke="#1a1d24" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+                <span class="zoom">🔍</span>
+              </a>
+            </td>
+            <td class="ex">TRX Single-Arm Row with Rotation <span class="tag trx">TRX</span></td>
+            <td class="n">4</td>
+            <td class="n">6–8 / arm</td>
+            <td class="cue">Rotate torso slightly toward the pulling arm at the top.</td>
+          </tr>
+          <tr data-id="d2-2">
+            <td class="check"><span class="cb"></span></td>
+            <td class="demo">
+              <a class="thumb" href="https://www.google.com/search?tbm=isch&q=TRX+row" target="_blank" rel="noopener" title="View TRX row images" onclick="event.stopPropagation()">
+                <svg viewBox="0 0 60 44" xmlns="http://www.w3.org/2000/svg">
+                  <rect width="60" height="44" fill="#eff6ff"/>
+                  <circle cx="30" cy="4" r="2.5" fill="#2b6cb0"/>
+                  <line x1="28" y1="6" x2="24" y2="22" stroke="#2b6cb0" stroke-width="1.3"/>
+                  <line x1="32" y1="6" x2="36" y2="22" stroke="#2b6cb0" stroke-width="1.3"/>
+                  <circle cx="30" cy="24" r="3" fill="#1a1d24"/>
+                  <line x1="30" y1="27" x2="22" y2="36" stroke="#1a1d24" stroke-width="2" stroke-linecap="round"/>
+                  <line x1="30" y1="28" x2="24" y2="22" stroke="#1a1d24" stroke-width="1.5" stroke-linecap="round"/>
+                  <line x1="30" y1="28" x2="36" y2="22" stroke="#1a1d24" stroke-width="1.5" stroke-linecap="round"/>
+                  <line x1="22" y1="36" x2="14" y2="40" stroke="#1a1d24" stroke-width="1.5" stroke-linecap="round"/>
+                  <line x1="22" y1="36" x2="20" y2="42" stroke="#1a1d24" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+                <span class="zoom">🔍</span>
+              </a>
+            </td>
+            <td class="ex">TRX Two-Arm Row (hard angle) <span class="tag trx">TRX</span></td>
+            <td class="n">3</td>
+            <td class="n">8–10</td>
+            <td class="cue">Walk feet forward until body is close to parallel.</td>
+          </tr>
+          <tr data-id="d2-3">
+            <td class="check"><span class="cb"></span></td>
+            <td class="demo">
+              <a class="thumb" href="https://www.google.com/search?tbm=isch&q=single+arm+dumbbell+row" target="_blank" rel="noopener" title="View single-arm DB row images" onclick="event.stopPropagation()">
+                <svg viewBox="0 0 60 44" xmlns="http://www.w3.org/2000/svg">
+                  <rect width="60" height="44" fill="#f5f3ff"/>
+                  <circle cx="14" cy="22" r="3" fill="#1a1d24"/>
+                  <line x1="14" y1="25" x2="14" y2="34" stroke="#1a1d24" stroke-width="2" stroke-linecap="round"/>
+                  <line x1="14" y1="27" x2="30" y2="34" stroke="#1a1d24" stroke-width="1.5" stroke-linecap="round"/>
+                  <line x1="30" y1="34" x2="30" y2="24" stroke="#1a1d24" stroke-width="1.5" stroke-linecap="round"/>
+                  <rect x="24" y="19" width="12" height="5" rx="2" fill="#7c3aed"/>
+                  <line x1="14" y1="34" x2="8" y2="41" stroke="#1a1d24" stroke-width="1.5" stroke-linecap="round"/>
+                  <line x1="14" y1="34" x2="14" y2="41" stroke="#1a1d24" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+                <span class="zoom">🔍</span>
+              </a>
+            </td>
+            <td class="ex">Single-Arm DB Row <span class="tag db">DB</span></td>
+            <td class="n">3</td>
+            <td class="n">8–10 / arm</td>
+            <td class="cue">Free hand on a fixed surface or TRX strap. Keep back flat.</td>
+          </tr>
+          <tr data-id="d2-4">
+            <td class="check"><span class="cb"></span></td>
+            <td class="demo">
+              <a class="thumb" href="https://www.google.com/search?tbm=isch&q=TRX+biceps+curl" target="_blank" rel="noopener" title="View TRX biceps curl images" onclick="event.stopPropagation()">
+                <svg viewBox="0 0 60 44" xmlns="http://www.w3.org/2000/svg">
+                  <rect width="60" height="44" fill="#eff6ff"/>
+                  <circle cx="30" cy="4" r="2.5" fill="#2b6cb0"/>
+                  <line x1="28" y1="6" x2="24" y2="22" stroke="#2b6cb0" stroke-width="1.3"/>
+                  <line x1="32" y1="6" x2="36" y2="22" stroke="#2b6cb0" stroke-width="1.3"/>
+                  <circle cx="30" cy="24" r="3" fill="#1a1d24"/>
+                  <line x1="30" y1="27" x2="22" y2="34" stroke="#1a1d24" stroke-width="2" stroke-linecap="round"/>
+                  <path d="M30 27 L26 24 L24 22" stroke="#1a1d24" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M30 27 L34 24 L36 22" stroke="#1a1d24" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                  <line x1="22" y1="34" x2="16" y2="41" stroke="#1a1d24" stroke-width="1.5" stroke-linecap="round"/>
+                  <line x1="22" y1="34" x2="24" y2="41" stroke="#1a1d24" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+                <span class="zoom">🔍</span>
+              </a>
+            </td>
+            <td class="ex">TRX Single-Arm Biceps Curl <span class="tag trx">TRX</span></td>
+            <td class="n">3</td>
+            <td class="n">8–10 / arm</td>
+            <td class="cue">Free hand on chest to challenge balance.</td>
+          </tr>
+          <tr data-id="d2-5">
+            <td class="check"><span class="cb"></span></td>
+            <td class="demo">
+              <a class="thumb" href="https://www.google.com/search?tbm=isch&q=single+arm+dumbbell+hammer+curl" target="_blank" rel="noopener" title="View DB hammer curl images" onclick="event.stopPropagation()">
+                <svg viewBox="0 0 60 44" xmlns="http://www.w3.org/2000/svg">
+                  <rect width="60" height="44" fill="#f5f3ff"/>
+                  <circle cx="30" cy="10" r="3" fill="#1a1d24"/>
+                  <line x1="30" y1="13" x2="30" y2="30" stroke="#1a1d24" stroke-width="2" stroke-linecap="round"/>
+                  <line x1="30" y1="18" x2="40" y2="26" stroke="#1a1d24" stroke-width="1.5" stroke-linecap="round"/>
+                  <line x1="40" y1="26" x2="40" y2="18" stroke="#1a1d24" stroke-width="1.5" stroke-linecap="round"/>
+                  <rect x="34" y="13" width="12" height="5" rx="2" fill="#7c3aed"/>
+                  <line x1="30" y1="30" x2="25" y2="40" stroke="#1a1d24" stroke-width="1.5" stroke-linecap="round"/>
+                  <line x1="30" y1="30" x2="35" y2="40" stroke="#1a1d24" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+                <span class="zoom">🔍</span>
+              </a>
+            </td>
+            <td class="ex">Single-Arm DB Hammer Curl <span class="tag db">DB</span></td>
+            <td class="n">3</td>
+            <td class="n">10–12 / arm</td>
+            <td class="cue">Elbow close to body, no torso swinging.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- ============ DAY 3 ============ -->
+    <div class="day legs" data-day="day3">
+      <div class="day-head">
+        <div class="num">03</div>
+        <h3>Legs &amp; Core</h3>
+        <span class="progress">0 / 6</span>
+      </div>
+      <table>
+        <thead>
+          <tr>
+            <th></th>
+            <th style="width:66px; text-align:center">Demo</th>
+            <th>Exercise</th>
+            <th style="text-align:center">Sets</th>
+            <th style="text-align:center">Reps</th>
+            <th>Coaching Cue</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr data-id="d3-1">
+            <td class="check"><span class="cb"></span></td>
+            <td class="demo">
+              <a class="thumb" href="https://www.google.com/search?tbm=isch&q=TRX+pistol+squat" target="_blank" rel="noopener" title="View TRX pistol squat images" onclick="event.stopPropagation()">
+                <svg viewBox="0 0 60 44" xmlns="http://www.w3.org/2000/svg">
+                  <rect width="60" height="44" fill="#ecfdf5"/>
+                  <circle cx="30" cy="4" r="2.5" fill="#2f855a"/>
+                  <line x1="28" y1="6" x2="24" y2="20" stroke="#2f855a" stroke-width="1.3"/>
+                  <line x1="32" y1="6" x2="36" y2="20" stroke="#2f855a" stroke-width="1.3"/>
+                  <circle cx="30" cy="22" r="3" fill="#1a1d24"/>
+                  <line x1="30" y1="25" x2="30" y2="32" stroke="#1a1d24" stroke-width="2" stroke-linecap="round"/>
+                  <line x1="30" y1="26" x2="24" y2="20" stroke="#1a1d24" stroke-width="1.5" stroke-linecap="round"/>
+                  <line x1="30" y1="26" x2="36" y2="20" stroke="#1a1d24" stroke-width="1.5" stroke-linecap="round"/>
+                  <path d="M30 32 L24 34 L22 40" stroke="#1a1d24" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span class="zoom">🔍</span>
+              </a>
+            </td>
+            <td class="ex">TRX Assisted Pistol Squat <span class="tag trx">TRX</span></td>
+            <td class="n">4</td>
+            <td class="n">6–8 / leg</td>
+            <td class="cue">Use straps only for balance — do not pull yourself up.</td>
+          </tr>
+          <tr data-id="d3-2">
+            <td class="check"><span class="cb"></span></td>
+            <td class="demo">
+              <a class="thumb" href="https://www.google.com/search?tbm=isch&q=TRX+bulgarian+split+squat" target="_blank" rel="noopener" title="View TRX Bulgarian split squat images" onclick="event.stopPropagation()">
+                <svg viewBox="0 0 60 44" xmlns="http://www.w3.org/2000/svg">
+                  <rect width="60" height="44" fill="#ecfdf5"/>
+                  <circle cx="30" cy="4" r="2.5" fill="#2f855a"/>
+                  <line x1="30" y1="4" x2="42" y2="26" stroke="#2f855a" stroke-width="1.3"/>
+                  <circle cx="30" cy="20" r="3" fill="#1a1d24"/>
+                  <line x1="30" y1="23" x2="30" y2="32" stroke="#1a1d24" stroke-width="2" stroke-linecap="round"/>
+                  <path d="M30 32 L22 36 L22 42" stroke="#1a1d24" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M30 32 L38 34 L42 26" stroke="#1a1d24" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span class="zoom">🔍</span>
+              </a>
+            </td>
+            <td class="ex">TRX Bulgarian Split Squat <span class="tag trx">TRX</span></td>
+            <td class="n">3</td>
+            <td class="n">8–10 / leg</td>
+            <td class="cue">Rear foot in strap, front foot on floor. Slow tempo.</td>
+          </tr>
+          <tr data-id="d3-3">
+            <td class="check"><span class="cb"></span></td>
+            <td class="demo">
+              <a class="thumb" href="https://www.google.com/search?tbm=isch&q=dumbbell+goblet+squat" target="_blank" rel="noopener" title="View DB goblet squat images" onclick="event.stopPropagation()">
+                <svg viewBox="0 0 60 44" xmlns="http://www.w3.org/2000/svg">
+                  <rect width="60" height="44" fill="#f5f3ff"/>
+                  <circle cx="30" cy="10" r="3" fill="#1a1d24"/>
+                  <line x1="30" y1="13" x2="30" y2="26" stroke="#1a1d24" stroke-width="2" stroke-linecap="round"/>
+                  <rect x="24" y="14" width="12" height="5" rx="2" fill="#7c3aed"/>
+                  <path d="M30 26 L22 30 L22 40" stroke="#1a1d24" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M30 26 L38 30 L38 40" stroke="#1a1d24" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span class="zoom">🔍</span>
+              </a>
+            </td>
+            <td class="ex">DB Goblet Squat <span class="tag db">DB</span></td>
+            <td class="n">3</td>
+            <td class="n">10–12</td>
+            <td class="cue">Hold dumbbell vertically at chest. Chest up, depth controlled.</td>
+          </tr>
+          <tr data-id="d3-4">
+            <td class="check"><span class="cb"></span></td>
+            <td class="demo">
+              <a class="thumb" href="https://www.google.com/search?tbm=isch&q=single+leg+dumbbell+romanian+deadlift" target="_blank" rel="noopener" title="View single-leg DB RDL images" onclick="event.stopPropagation()">
+                <svg viewBox="0 0 60 44" xmlns="http://www.w3.org/2000/svg">
+                  <rect width="60" height="44" fill="#f5f3ff"/>
+                  <circle cx="30" cy="10" r="3" fill="#1a1d24"/>
+                  <line x1="30" y1="13" x2="30" y2="28" stroke="#1a1d24" stroke-width="2" stroke-linecap="round"/>
+                  <line x1="30" y1="28" x2="30" y2="40" stroke="#1a1d24" stroke-width="1.5" stroke-linecap="round"/>
+                  <line x1="30" y1="28" x2="42" y2="34" stroke="#1a1d24" stroke-width="1.5" stroke-linecap="round"/>
+                  <line x1="30" y1="20" x2="20" y2="32" stroke="#1a1d24" stroke-width="1.5" stroke-linecap="round"/>
+                  <rect x="14" y="30" width="12" height="5" rx="2" fill="#7c3aed"/>
+                </svg>
+                <span class="zoom">🔍</span>
+              </a>
+            </td>
+            <td class="ex">Single-Leg DB Romanian Deadlift <span class="tag db">DB</span></td>
+            <td class="n">3</td>
+            <td class="n">8–10 / leg</td>
+            <td class="cue">Dumbbell in opposite hand. Hips back, flat back, control.</td>
+          </tr>
+          <tr data-id="d3-5">
+            <td class="check"><span class="cb"></span></td>
+            <td class="demo">
+              <a class="thumb" href="https://www.google.com/search?tbm=isch&q=TRX+hamstring+curl" target="_blank" rel="noopener" title="View TRX hamstring curl images" onclick="event.stopPropagation()">
+                <svg viewBox="0 0 60 44" xmlns="http://www.w3.org/2000/svg">
+                  <rect width="60" height="44" fill="#ecfdf5"/>
+                  <circle cx="50" cy="6" r="2.5" fill="#2f855a"/>
+                  <line x1="50" y1="6" x2="18" y2="30" stroke="#2f855a" stroke-width="1.2"/>
+                  <circle cx="42" cy="30" r="3" fill="#1a1d24"/>
+                  <line x1="39" y1="30" x2="22" y2="30" stroke="#1a1d24" stroke-width="2" stroke-linecap="round"/>
+                  <line x1="22" y1="30" x2="16" y2="26" stroke="#1a1d24" stroke-width="1.5" stroke-linecap="round"/>
+                  <line x1="42" y1="30" x2="42" y2="38" stroke="#1a1d24" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+                <span class="zoom">🔍</span>
+              </a>
+            </td>
+            <td class="ex">TRX Single-Leg Hamstring Curl <span class="tag trx">TRX</span></td>
+            <td class="n">3</td>
+            <td class="n">8–10 / leg</td>
+            <td class="cue">One foot in strap, other leg in air. Keep hips lifted.</td>
+          </tr>
+          <tr data-id="d3-6">
+            <td class="check"><span class="cb"></span></td>
+            <td class="demo">
+              <a class="thumb" href="https://www.google.com/search?tbm=isch&q=TRX+pike" target="_blank" rel="noopener" title="View TRX pike images" onclick="event.stopPropagation()">
+                <svg viewBox="0 0 60 44" xmlns="http://www.w3.org/2000/svg">
+                  <rect width="60" height="44" fill="#ecfdf5"/>
+                  <circle cx="50" cy="6" r="2.5" fill="#2f855a"/>
+                  <line x1="50" y1="6" x2="14" y2="34" stroke="#2f855a" stroke-width="1.2"/>
+                  <circle cx="40" cy="32" r="3" fill="#1a1d24"/>
+                  <path d="M40 32 Q28 22 18 32 L14 34" stroke="#1a1d24" stroke-width="2" fill="none" stroke-linecap="round"/>
+                  <line x1="40" y1="32" x2="40" y2="40" stroke="#1a1d24" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+                <span class="zoom">🔍</span>
+              </a>
+            </td>
+            <td class="ex">TRX Pike (slow tempo) <span class="tag trx">TRX</span></td>
+            <td class="n">3</td>
+            <td class="n">8–10</td>
+            <td class="cue">Pause 2 seconds at the top of the movement.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2 class="section">Cool-Down · 5 Minutes</h2>
+    <div class="warmup" style="border-left-color:#2b6cb0">
+      <ul>
+        <li>Chest stretch — 30 sec per side</li>
+        <li>Lat stretch — 30 sec per side</li>
+        <li>Hip flexor stretch — 30 sec per side</li>
+        <li>Hamstring stretch — 30 sec per side</li>
+        <li>Slow breathing — 1–2 minutes</li>
+      </ul>
+    </div>
+
+    <h2 class="section">Progression &amp; Guidelines</h2>
+    <div class="grid2">
+      <div class="box">
+        <h4>Progression Rules</h4>
+        <ol>
+          <li><strong>Progressive Overload:</strong> each week change only one variable — reps, tempo, body angle, or dumbbell weight.</li>
+          <li><strong>Deload Week:</strong> every 4th week reduce to 2 sets and easier angles.</li>
+          <li><strong>Rotation:</strong> every 6–8 weeks swap one exercise for a harder variation.</li>
+          <li><strong>Tracking:</strong> record sets, reps, tempo, angle, and dumbbell weight.</li>
+        </ol>
+      </div>
+      <div class="box">
+        <h4>Intensity Tools</h4>
+        <ul>
+          <li><strong>Body Angle:</strong> the closer to parallel with TRX, the harder.</li>
+          <li><strong>Tempo:</strong> slow eccentric phases increase time under tension.</li>
+          <li><strong>Single-Limb:</strong> one arm or leg doubles the stability demand.</li>
+          <li><strong>Pauses:</strong> 1–2 sec holds increase control and difficulty.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="notes">
+      <h4>Important Notes</h4>
+      <ul style="padding-left:18px; margin-top:8px;">
+        <li>Prioritize perfect form over repetition count.</li>
+        <li>If form breaks, make the angle easier by stepping closer to the anchor.</li>
+        <li>With one dumbbell, complete all reps on one side before switching.</li>
+        <li>Stop any exercise that causes sharp pain.</li>
+        <li>Designed for experienced TRX users — adjust to your recovery and goals.</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <footer>
+    <span>3-Day TRX + Dumbbell Program</span>
+    <span>Push · Pull · Legs &amp; Core</span>
+  </footer>
+
+</div>
+
+<div class="btn-group">
+  <button class="btn btn-reset" onclick="resetAll()">↺ Reset</button>
+  <button class="btn btn-print" onclick="window.print()">⬇ Save as PDF</button>
+</div>
+
+<script>
+  const STORAGE_KEY = 'trx-db-program-progress-v1';
+
+  function loadState() {
+    try { return JSON.parse(localStorage.getItem(STORAGE_KEY)) || {}; }
+    catch (e) { return {}; }
+  }
+  function saveState(state) {
+    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); } catch (e) {}
+  }
+  function updateProgress() {
+    document.querySelectorAll('.day').forEach(day => {
+      const total = day.querySelectorAll('tbody tr').length;
+      const done  = day.querySelectorAll('tbody tr.done').length;
+      const el = day.querySelector('.progress');
+      if (el) el.textContent = `${done} / ${total}`;
+    });
+  }
+
+  let state = loadState();
+  document.querySelectorAll('tbody tr').forEach(tr => {
+    if (state[tr.dataset.id]) tr.classList.add('done');
+  });
+  updateProgress();
+
+  document.querySelectorAll('tbody tr').forEach(tr => {
+    tr.addEventListener('click', (e) => {
+      if (e.target.closest('a.thumb')) return;
+      tr.classList.toggle('done');
+      const id = tr.dataset.id;
+      if (tr.classList.contains('done')) state[id] = true;
+      else delete state[id];
+      saveState(state);
+      updateProgress();
+    });
+  });
+
+  function resetAll() {
+    if (!confirm('Clear all completed exercises?')) return;
+    state = {};
+    saveState(state);
+    document.querySelectorAll('tbody tr').forEach(tr => tr.classList.remove('done'));
+    updateProgress();
+  }
+</script>
+
+</body>
+</html>
